@@ -10,7 +10,7 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
-    passwrd: {
+    password: {
         type: String,
         required: true,
         minLength: 8
