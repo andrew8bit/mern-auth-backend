@@ -89,9 +89,20 @@ const login = async(req, res) => {
         } else { // <------------------------------------------- passwords did not match
             return res.status(400).json( { message: 'Email or Password were incorrect'})
         }
+
     } else { // <------------------------------------------- user not found 
         return res.status(400).json( { message: 'User not found'})
     }
+}
+
+// profile 
+const profile = (req, res) => {
+    console.log('=====================> PROFILE ')
+    console.log(req)
+    console.log('======> USER')
+    console.log(req.user)
+    const { id, name, email } = req.user; // object with user object inside 
+    res.json({ id, name, email })
 }
 
 
@@ -101,4 +112,5 @@ module.exports = {
     test,
     register,
     login,
+    profile
 }
